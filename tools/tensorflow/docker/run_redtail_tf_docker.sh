@@ -25,7 +25,7 @@ REDTAIL_ID=`docker ps -aqf "name=^/${REDTAIL_TF_NAME}$"`
 if [ -z "${REDTAIL_ID}" ]; then
     echo "Creating new redtail container."
     xhost +
-    nvidia-docker run -it --privileged --network=host -v ${HOST_DATA_DIR}:${CONTAINER_DATA_DIR}:rw -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix${DISPLAY} -p 14556:14556/udp --name=${REDTAIL_TF_NAME} nvidia-redtail-tf:1.5 bash
+    nvidia-docker run -it --privileged --network=host -v ${HOST_DATA_DIR}:${CONTAINER_DATA_DIR}:rw -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix${DISPLAY} -p 8888:8888 -p 6006:6006 --name=${REDTAIL_TF_NAME} nvidia-redtail-tf:1.5 bash
 else
     echo "Found redtail container: ${REDTAIL_ID}."
     # Check if the container is already running and start if necessary.
