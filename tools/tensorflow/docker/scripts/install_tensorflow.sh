@@ -15,3 +15,6 @@ pip install --ignore-installed --upgrade tensorflow_gpu-1.5.0-cp35-cp35m-linux_x
 pip install plyfile
 
 echo "export LD_LIBRARY_PATH=\${LD_LIBRARY_PATH}:/usr/local/cuda/extras/CUPTI/lib64/" >> ${HOME}/.bashrc
+
+echo "source activate tensorflow" >> ${HOME}/.bashrc
+
